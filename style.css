@@ -3,3 +3,12 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+#year {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+#pause {
+  display: inline-block;
+}
