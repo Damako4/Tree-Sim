@@ -10,7 +10,7 @@ window.onload = function() {
       ctx.drawImage(images[1],0,0,images[1].width,images[1].height);
   }
   function drawTree(x,y){
-      ctx.drawImage(images[0],x,y,images[0].width/8,images[0].height/8);
+      ctx.drawImage(images[0],x-15,y-15,images[0].width/8,images[0].height/8);
   }
   imageURL.forEach(src => {
        const image = new Image();
@@ -54,7 +54,7 @@ $('#spawner').mousedown(function(e) {
     var c = this.getContext('2d');
     var p = c.getImageData(x, y, 1, 1).data; 
     var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-    if (hex)
+    
 });
 
 };
