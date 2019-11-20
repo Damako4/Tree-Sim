@@ -7,7 +7,7 @@ window.onload = function() {
   const images = [];
   var imageCount = 0;
   function allLoaded(){
-      ctx.drawImage(images[1],0,0,images[1].width*2,images[1].height*2);
+      ctx.drawImage(images[1],0,0,images[1].width*1.5,images[1].height*1.5);
   }
   function drawTree(x,y){
       ctx.drawImage(images[0],x-15,y-15,images[0].width/8,images[0].height/8);
