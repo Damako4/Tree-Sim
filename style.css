@@ -4,11 +4,7 @@ html, body {
   margin: 0;
 }
 
-#year {
+.info {
   display: inline-block;
   margin-right: 50px;
-}
-
-#pause {
-  display: inline-block;
 }

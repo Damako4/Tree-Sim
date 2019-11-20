@@ -4,6 +4,8 @@ window.onload = function () {
   ctx.canvas.width = window.innerWidth;
   ctx.canvas.height = window.innerHeight - 50;
   var year = 0;
+  var paused = false;
+  var trees = 0;
   document.getElementById('year').innerHTML = "Year: " + year;
   const imageURL = ["tree.png", "map.png"];
   const images = [];
@@ -27,9 +29,6 @@ window.onload = function () {
     images.push(image);
 
   });
-
-};
-var paused = false;
 
   function findPos(obj) {
     var curleft = 0, curtop = 0;
@@ -60,7 +59,7 @@ var paused = false;
     var c = this.getContext('2d');
     var p = c.getImageData(x, y, 1, 1).data;
     var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
-
+    trees+=10;
   });
 
   function togglep() {
@@ -71,24 +70,17 @@ var paused = false;
     }
   }
 
-  function update(progress) {
-    year++;
-    document.getElementById('year').innerHTML = "Year: " + year;
+  document.getElementById('pause').onclick = function () {
+    togglep();
   }
-
-  function draw() {
-
-  }
-
-  function loop(timestamp) {
+  function update() {
     if (!paused) {
-      update(progress);
-      draw();
+      year++;
+      document.getElementById('year').innerHTML = "Year: " + year;
+      document.getElementById('trees').innerHTML = "Trees: " + trees;
     }
-    var progress = timestamp - lastRender;
-
-    lastRender = timestamp;
-    window.requestAnimationFrame(loop);
   }
-  var lastRender = 0;
-  window.requestAnimationFrame(loop);
+
+  setInterval(function () { update(); }, 500)
+
+};
