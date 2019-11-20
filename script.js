@@ -53,7 +53,7 @@ $('#spawner').mousedown(function(e) {
     var coord = "x=" + x + ", y=" + y;
     var c = this.getContext('2d');
     var p = c.getImageData(x, y, 1, 1).data; 
-    var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
+    console.log(rgbToHex(p[0], p[1], p[2])).slice(-6);
     
 });
 
